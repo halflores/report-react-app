@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import report from "../services/report.service";
 import fileSaver from 'file-saver';
 import 'react-datepicker/dist/react-datepicker.css';
+import { dropdownIndicatorCSS } from "react-select/dist/declarations/src/components/indicators";
 
 const required = (value) => {
   if (!value) {
@@ -77,7 +78,7 @@ const BoardReport = (props) => {
               //Open the URL on new Window
               const pdfWindow = window.open();
               pdfWindow.location.href = fileURL;
-            } else {
+            } else {dropdownIndicatorCSS
               var blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
               fileSaver.saveAs(blob, 'detOrdenes.xls');
             }
