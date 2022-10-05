@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import BoardReport from "./components/BoardReport";
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <Link to={"/home"} className="navbar-brand">
+          &nbsp;&nbsp;DtFactory&nbsp;
+        </Link>
+        <div className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link to={"/report"} className="nav-link">
+              Reportes
+            </Link>
+          </li>
+        </div>
+      </nav>
+
+      <div className="container mt-3">
+        <Routes>
+          <Route exact path={"/"} element={<BoardReport />} />              
+          <Route path="/report" element={<BoardReport />} />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
