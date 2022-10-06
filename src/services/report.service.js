@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://locahost:3000/api/Ordenes/GetR_OrdenesAsync";
+const API_URL = "http://localhost:5120/api/Order/GetR_OrdenesAsync";
 
 const detalleOrdenes = (options) => {
   if (options.fileType == "PDF") {
